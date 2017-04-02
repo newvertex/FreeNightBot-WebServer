@@ -1,5 +1,7 @@
 'use strict';
 
+const restrictFindToRole = require('./restrictFindToRole');
+
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
@@ -9,7 +11,8 @@ exports.before = {
   find: [
     auth.verifyToken(),
     auth.populateUser(),
-    auth.restrictToAuthenticated()
+    auth.restrictToAuthenticated(),
+    restrictFindToRole()
   ],
   get: [
     auth.verifyToken(),
