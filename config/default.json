@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/freenightBotWebserver",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "MbOEVoPflt4pSnLBRNL/ypnNB+xlzAGx/8cnBE23WcFPmNyh6Yj5v4aCKYdhdH9UCfL1OZwyD3UW7FSyqYZwZg=="
+    },
+    "local": {}
+  }
+}
