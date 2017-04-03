@@ -1,35 +1,29 @@
 'use strict';
 
-const restrictFindToRole = require('./restrictFindToRole');
+const restrictToOwnerTid = require('./restrictToOwnerTid');
 
 const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
 
 exports.before = {
-  all: [],
+  all: [
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated()
+  ],
   find: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated(),
-    restrictFindToRole()
+    restrictToOwnerTid()
   ],
-  get: [
-    auth.verifyToken(),
-    auth.populateUser(),
-    auth.restrictToAuthenticated(),
-    auth.restrictToOwner({ ownerField: '_id' })
-  ],
-  create: [
-    auth.hashPassword()
-  ],
+  get: [hooks.disable('external')],
+  create: [hooks.disable('external')],
   update: [hooks.disable('external')],
   patch: [hooks.disable('external')],
   remove: [hooks.disable('external')]
 };
 
 exports.after = {
-  all: [hooks.remove('password')],
+  all: [],
   find: [],
   get: [],
   create: [],
