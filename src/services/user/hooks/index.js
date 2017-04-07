@@ -24,7 +24,12 @@ exports.before = {
     auth.hashPassword()
   ],
   update: [hooks.disable('external')],
-  patch: [hooks.disable('external')],
+  patch: [
+    auth.verifyToken(),
+    auth.populateUser(),
+    auth.restrictToAuthenticated(),
+    auth.restrictToOwner({ ownerField: '_id' }),
+    hooks.remove('email', 'password', 'tid', 'role')],
   remove: [hooks.disable('external')]
 };
 
