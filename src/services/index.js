@@ -1,4 +1,5 @@
 'use strict';
+const template = require('./template');
 const tuser = require('./tuser');
 const shortener = require('./shortener');
 const authentication = require('./authentication');
@@ -14,4 +15,5 @@ module.exports = function() {
   app.configure(user);
   app.configure(shortener);
   app.configure(tuser);
+  app.configure(template);
 };

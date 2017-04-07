@@ -13,7 +13,6 @@ module.exports = function(options) {
     return function(hook) {
         return hook.service.get(hook.params.user.tid)
             .then(res => {
-                console.log(res)
                 hook.result = {};
                 hook.result.data = res;
                 return hook;
