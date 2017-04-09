@@ -9,9 +9,10 @@ module.exports = function() {
 
   const options = {
     Model: template,
+    lean: true,
     paginate: {
-      default: 5,
-      max: 25
+      default: 300,
+      max: 300
     }
   };
 

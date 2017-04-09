@@ -11,6 +11,7 @@ const Schema = mongoose.Schema;
 const templateSchema = new Schema({
   title: { type: String, required: true },
   content: { type: String, 'default': '' },
+  postType: { type: String, 'default': 'text' },
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
