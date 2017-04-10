@@ -1,5 +1,5 @@
 {
-  "host": "freenight-bot-webserver-app.feathersjs.com",
+  "host": "https://free-night.herokuapp.com/",
   "port": 80,
   "mongodb": "DATABASE_URL",
   "public": "../public/",
