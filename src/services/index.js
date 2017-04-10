@@ -1,4 +1,5 @@
 'use strict';
+const bot = require('./bot');
 const template = require('./template');
 const tuser = require('./tuser');
 const shortener = require('./shortener');
@@ -16,4 +17,5 @@ module.exports = function() {
   app.configure(shortener);
   app.configure(tuser);
   app.configure(template);
+  app.configure(bot);
 };

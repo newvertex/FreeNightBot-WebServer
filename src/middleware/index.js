@@ -1,5 +1,7 @@
 'use strict';
 
+const Bot = require('./../bot');
+
 const handler = require('feathers-errors/handler');
 const notFound = require('./not-found-handler');
 const logger = require('./logger');
@@ -10,6 +12,8 @@ module.exports = function() {
   // handling middleware should go last.
   const app = this;
 
+  app.use(Bot.webhookCallback(Bot.api));
+  
   app.use(notFound());
   app.use(logger(app));
   app.use(handler());
