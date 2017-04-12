@@ -6,6 +6,8 @@
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
+# Project moved to gitlab private repository
+
 ## Changelog
 
 __0.1.0__
